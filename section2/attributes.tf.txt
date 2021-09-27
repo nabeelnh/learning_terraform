@@ -1,0 +1,17 @@
+# Creating an EIP
+resource "aws_eip" "lb" {
+  vpc      = true
+}
+
+output "eip" {
+  value = aws_eip.lb.public_ip
+}
+
+# Create S3
+resource "aws_s3_bucket" "lb" {
+  bucket = "nabeel-terraform-bucket-001"
+}
+
+output "bucket" {
+  value = aws_s3_bucket.lb.region
+}

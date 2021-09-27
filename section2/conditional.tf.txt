@@ -1,0 +1,16 @@
+
+variable "is_test" {
+    default = true
+}
+
+resource "aws_instance" "dev" {
+  ami           =   var.image_ami
+  instance_type =   "t2.micro"
+  count         =   var.is_test == true ? 1 : 0
+}
+
+resource "aws_instance" "prod" {
+  ami           =   var.image_ami
+  instance_type =   "t2.nano"
+  count         =   var.is_test == false ? 1 : 0
+}
