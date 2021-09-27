@@ -1,2 +1,2 @@
-first_instance/terraform*
-first_instance/.terraform*
+*/terraform*
+*/.terraform*
